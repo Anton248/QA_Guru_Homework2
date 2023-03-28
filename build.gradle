@@ -18,5 +18,5 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 test {
-    useJUnitPlatform() //JUnit 5 (useJUnit() - 4)
+    useJUnitPlatform() //JUnit 5 (useJUnit() - 4). This shows gradle that JUnit will be used for tests
 }
