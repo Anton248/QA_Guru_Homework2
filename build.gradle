@@ -18,5 +18,5 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform() //JUnit 5 (useJUnit() - 4)
 }
