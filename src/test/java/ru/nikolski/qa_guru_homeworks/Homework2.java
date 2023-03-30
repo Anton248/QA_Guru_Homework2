@@ -68,6 +68,7 @@ public class Homework2 extends TestBase {
         //file, address, state, city
         $("#uploadPicture").uploadFromClasspath(pathToPictures + file);
         $("#currentAddress").setValue(currentAddress);
+        //$("#state").selectOption(state); //doesn't work
         $("#state").click();
         $("#state").$(byText(state)).click();
         $("#city").click();
