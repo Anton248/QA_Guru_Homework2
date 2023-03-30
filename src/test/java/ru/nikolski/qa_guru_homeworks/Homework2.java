@@ -1,17 +1,14 @@
 package ru.nikolski.qa_guru_homeworks;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 //testing all fields, checkboxes and buttons at https://demoqa.com/automation-practice-form
-public class Homework2 extends TestBase{
-    String zero = ""; //is used to add "0" to String
-
+public class Homework2 extends TestBase {
     @Test
     void homework2() {
 
@@ -30,12 +27,15 @@ public class Homework2 extends TestBase{
                 hobbies2 = "Reading",
                 hobbies3 = "Music",
                 file = "1.jpg",
+                pathToPictures = "pictures/",
                 currentAddress = "Москва, ул. Уличная, д.5, кв.111",
                 state = "Uttar Pradesh",
                 city = "Agra";
 
 
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
 
         //filling the input fields, clicking the checkboxes, etc
 
@@ -52,8 +52,7 @@ public class Homework2 extends TestBase{
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption(yearOfBirth);
         $(".react-datepicker__month-select").selectOption(monthOfBirth);
-        if (dayOfBirth.length() == 1) zero = "0";
-        $(".react-datepicker__day--0" + zero + dayOfBirth).click();
+        $(".react-datepicker__week").$(byText(dayOfBirth)).click();
 
         //study subjects
         //$("#subjectsInput").setValue(subject1.substring(0,1));
@@ -79,21 +78,21 @@ public class Homework2 extends TestBase{
 
         //checking that all fields were filled right
         $(".table-responsive").shouldHave(
-                Condition.text(firstName + " "),
-                Condition.text(" " + lastName),
-                Condition.text(email),
-                Condition.text(gender),
-                Condition.text(mobileNumber),
-                Condition.text(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth),
-                Condition.text(subject1),
-                Condition.text(subject2),
-                Condition.text(hobbies1),
-                Condition.text(hobbies2),
-                Condition.text(hobbies3),
-                Condition.text(file),
-                Condition.text(currentAddress),
-                Condition.text(state),
-                Condition.text(city));
+                text(firstName + " "),
+                text(" " + lastName),
+                text(email),
+                text(gender),
+                text(mobileNumber),
+                text(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth),
+                text(subject1),
+                text(subject2),
+                text(hobbies1),
+                text(hobbies2),
+                text(hobbies3),
+                text(file),
+                text(currentAddress),
+                text(state),
+                text(city));
 
     }
 }
