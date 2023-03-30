@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 // Preparing browser for all tests
 public class TestBase {
-    String pathToPictures = "pictures/1.jpg"; //path to pictures which used in tests
+    String pathToPictures = "pictures/"; //path to pictures which used in tests
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";  //site to test
