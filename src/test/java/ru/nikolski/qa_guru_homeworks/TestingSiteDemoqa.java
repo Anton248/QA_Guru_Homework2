@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 //testing all fields, checkboxes and buttons at https://demoqa.com/automation-practice-form
-public class Homework2 extends TestBase {
+public class TestingSiteDemoqa extends TestBase {
     @Test
-    void homework2() {
+    void testAllFields() {
 
         //values for input fields, checkboxes, etc
         String firstName = "Ivan",
