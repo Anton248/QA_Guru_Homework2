@@ -34,6 +34,8 @@ public class TestingSiteDemoqa extends TestBase {
 
 
         open("/automation-practice-form");
+
+        //deleting ad banners
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
